@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Observer.Sample3;
 
 namespace Observer
 {
@@ -14,10 +15,8 @@ namespace Observer
             WeatherStation weatherStation = new WeatherStation();
 
             // Create users and register them with the station
-            User user1 = new User("Alice");
-            User user2 = new User("Bob");
-            weatherStation.Attach(user1);
-            weatherStation.Attach(user2);
+            User user1 = new User("Alice", weatherStation);
+            User user2 = new User("Bob", weatherStation);
 
             // Provide weather updates
             weatherStation.SetTemperature(25.5f); // Example temperature update
@@ -73,9 +72,10 @@ namespace Observer
         {
             private string name;
 
-            public User(string name)
+            public User(string name, WeatherStation station)
             {
                 this.name = name;
+                station.Attach(this);
             }
 
             public void Update(float temperature)
