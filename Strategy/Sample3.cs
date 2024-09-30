@@ -13,7 +13,7 @@ namespace Strategy
             var paymentOptions = new PaymentOptions()
             {
                 CardNumber = "1234123412341234",
-                CardHolderName = "Salih Cantekin",
+                CardHolderName = "Javid Sevdimaliyev",
                 ExpirationDate = "12/25",
                 Cvv = "123",
                 Amount = 1000
@@ -40,7 +40,7 @@ namespace Strategy
                         bankPaymentService = new UnibankPaymentService();
                         break;
                     default:
-                        Console.WriteLine("Geçersiz banka seçimi.");
+                        Console.WriteLine("Nonavailable bank choice.");
                         break;
                 }
 
