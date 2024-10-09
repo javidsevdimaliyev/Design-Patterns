@@ -23,7 +23,7 @@ namespace Mediator
         public interface IAirTrafficMediator
         {
             void Notify(Airplane airplane);
-            void AddAirplane(Airplane airplane);
+            void AddAirplanesToCommunication(Airplane airplane);
         }
 
         //ConcreteMediator
@@ -36,7 +36,7 @@ namespace Mediator
                 _airplanes = new List<Airplane>();
             }
 
-            public void AddAirplane(Airplane airplane)
+            public void AddAirplanesToCommunication(Airplane airplane)
             {
                 _airplanes.Add(airplane);
             }
@@ -63,7 +63,7 @@ namespace Mediator
             {
                 Name = name;
                 _mediator = airTrafficMediator;
-                _mediator.AddAirplane(this);
+                _mediator.AddAirplanesToCommunication(this);
             }
 
             public void RequestLanding()

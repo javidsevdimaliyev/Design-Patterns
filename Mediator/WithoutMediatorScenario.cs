@@ -14,14 +14,14 @@ namespace Mediator
             Airplane airplane2 = new Airplane("Airplane 2");
             Airplane airplane3 = new Airplane("Airplane 3");
 
-            airplane1.AddAirplane(airplane2);
-            airplane1.AddAirplane(airplane3);
+            airplane1.AddAirplanesToCommunication(airplane2);
+            airplane1.AddAirplanesToCommunication(airplane3);
 
-            airplane2.AddAirplane(airplane1);
-            airplane2.AddAirplane(airplane3);
+            airplane2.AddAirplanesToCommunication(airplane1);
+            airplane2.AddAirplanesToCommunication(airplane3);
 
-            airplane3.AddAirplane(airplane1);
-            airplane3.AddAirplane(airplane2);
+            airplane3.AddAirplanesToCommunication(airplane1);
+            airplane3.AddAirplanesToCommunication(airplane2);
 
             airplane1.RequestLanding();
         }
@@ -37,7 +37,7 @@ namespace Mediator
                 _airplanes = new List<Airplane>();
             }
 
-            public void AddAirplane(Airplane airplane)
+            public void AddAirplanesToCommunication(Airplane airplane)
             {
                 _airplanes.Add(airplane);
             }

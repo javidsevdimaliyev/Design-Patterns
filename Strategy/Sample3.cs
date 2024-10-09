@@ -26,25 +26,25 @@ namespace Strategy
                 Console.Write("Choose Bank Type (1: Kapital, 2: Pasha, 3: Unibank): ");
                 var bank = Console.ReadLine();
 
-                IPaymentStrategy bankPaymentService = null;
+                IPaymentStrategy bankPaymentStrategy = null;
 
                 switch (bank)
                 {
                     case "1":
-                        bankPaymentService = new KapitalBankPaymentService();
+                        bankPaymentStrategy = new KapitalBankPaymentService();
                         break;
                     case "2":
-                        bankPaymentService = new PashaBankPaymentService();
+                        bankPaymentStrategy = new PashaBankPaymentService();
                         break;
                     case "3":
-                        bankPaymentService = new UnibankPaymentService();
+                        bankPaymentStrategy = new UnibankPaymentService();
                         break;
                     default:
                         Console.WriteLine("Nonavailable bank choice.");
                         break;
                 }
 
-                paymentService.SetPaymentService(bankPaymentService);
+                paymentService.SetPaymentStrategy(bankPaymentStrategy);
                 paymentService.PayViaStrategy(paymentOptions);
 
             } while (Console.ReadKey().Key != ConsoleKey.Escape);
@@ -63,7 +63,7 @@ namespace Strategy
                 this.paymentService = paymentService;
             }
 
-            public void SetPaymentService(IPaymentStrategy paymentService)
+            public void SetPaymentStrategy(IPaymentStrategy paymentService)
             {
                 this.paymentService = paymentService;
             }
